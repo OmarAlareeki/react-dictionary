@@ -12,7 +12,7 @@ const fetchWord = async (word) => {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log("API response:", data); // Log API response
+    console.log("API response:", data);
 
     definitions = data.map(item => {
       if (item.hwi && item.hwi.prs && item.hwi.prs[0] && item.hwi.prs[0].sound) {
@@ -30,9 +30,10 @@ const fetchWord = async (word) => {
       return null;
     }).filter(item => item !== null);
 
-    console.log("Processed definitions:", definitions); // Log processed definitions
+    console.log("Processed definitions:", definitions);
 
   } catch (error) {
+    console.error('Failed to fetch data from API:', error.message);
     throw new Error('Failed to fetch data from API');
   }
 };

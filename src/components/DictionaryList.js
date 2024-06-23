@@ -15,10 +15,12 @@ class DictionaryList extends Component {
                 <h3>{item.name}</h3>
                 <p><strong>Class:</strong> {item.class}</p>
                 <p><strong>Definition:</strong> {item.def}</p>
-                <audio controls>
-                  <source src={item.audioUrl} type="audio/wav" />
-                  Your browser does not support the audio element.
-                </audio>
+                {item.audioUrl && (
+                  <audio controls>
+                    <source src={item.audioUrl} type="audio/wav" />
+                    Your browser does not support the audio element.
+                  </audio>
+                )}
               </li>
             ))}
           </ul>
